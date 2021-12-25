@@ -39,9 +39,9 @@ const newQuote = () => {
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   // Display 'Unknown' when author field is 'null'
   if (!quote.author) {
-    authorText.textContent = '- Unknown';
+    authorText.innerText = '- Unknown';
   } else {
-    authorText.textContent = `- ${quote.author}`;
+    authorText.innerText = `- ${quote.author}`;
   }
 
   // Decrease font size when quote text is longer than 100 characters
@@ -50,7 +50,7 @@ const newQuote = () => {
   } else {
     quoteText.classList.remove('long-quote');
   }
-  quoteText.textContent = quote.text;
+  quoteText.innerText = quote.text;
 
   hideLoading();
 };
@@ -60,7 +60,7 @@ getQuotesFromAPI();
 
 // Tweet quote
 const tweetQuote = () => {
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} ${authorText.textContent}`;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.innerText} ${authorText.innerText}`;
   window.open(twitterUrl, '_blank');
 };
 
